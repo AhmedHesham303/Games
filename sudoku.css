@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Merriweather", serif;
+  background-color: hsl(0, 8%, 90%);
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+h1 {
+  color: #0056b3;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+#grid {
+  width: 40%;
+  height: 65%;
+  border-collapse: collapse;
+  border: solid 3px #a9a9a9;
+  margin-bottom: 2rem;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+}
+
+.cell input {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: none;
+  font-size: 1.5rem;
+  color: #0056b3;
+}
+
+.cell input {
+  outline-color: #0056b3;
+}
+
+.btns {
+  width: 44%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.msg {
+  display: none;
+}
+
+.submit-btn,
+.reset-btn,
+.darkmode-btn,
+.return-btn,
+.msg {
+  background-color: #a2dff7;
+  color: #003b5c;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: #003b5c 2px solid;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.darkmode-btn,
+.return-btn {
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 0.8rem 1.6rem;
+}
+
+.submit-btn:hover,
+.reset-btn:hover,
+.darkmode-btn:hover,
+.return-btn:hover {
+  background-color: #7ec8e3;
+  color: #ffffff;
+  border: #005f7f 2px solid;
+  cursor: pointer;
+}
+
+.darkmode-btn {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+}
+
+.return-btn {
+  position: fixed;
+  right: 2rem;
+  top: 6rem;
+}
