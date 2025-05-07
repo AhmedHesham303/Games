@@ -92,7 +92,7 @@ function lightMode() {
   }
   header.style.color = "#0056b3";
   grid.style.borderColor = " #a9a9a9";
-  darkBtn.innerHTML = "Light Mode";
+  darkBtn.innerHTML = "Dark Mode";
 
   submitBtn.style.backgroundColor = "#a2dff7";
   submitBtn.style.color = "#003b5c";
