@@ -43,7 +43,7 @@ function darkMode() {
   header.style.color = "#E0E0E0";
   grid.style.borderColor = "#008080";
   darkBtn.innerHTML = "Light Mode";
-
+  
   submitBtn.style.backgroundColor = "#008080";
   submitBtn.style.color = "White";
   submitBtn.addEventListener("mouseleave", () => {
@@ -64,7 +64,7 @@ function darkMode() {
     resetBtn.style.backgroundColor = "#00b3b3";
     resetBtn.style.color = "#000000";
   });
-
+  returnBtn.style.backgroundColor = "#008080";
   darkBtn.style.backgroundColor = "#008080";
   darkBtn.style.color = "White";
   darkBtn.addEventListener("mouseleave", () => {
@@ -93,7 +93,7 @@ function lightMode() {
   header.style.color = "#0056b3";
   grid.style.borderColor = " #a9a9a9";
   darkBtn.innerHTML = "Dark Mode";
-
+  returnBtn.style.backgroundColor = "#a2dff7";
   submitBtn.style.backgroundColor = "#a2dff7";
   submitBtn.style.color = "#003b5c";
   submitBtn.addEventListener("mouseleave", () => {
