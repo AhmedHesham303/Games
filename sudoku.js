@@ -28,6 +28,7 @@ function inialise() {
 }
 
 function darkMode() {
+  returnBtn.style.color = "white";
   body.style.backgroundColor = "#1A1A2E";
   for (let i = 0; i < 81; i++) {
     input[i].style.backgroundColor = "#E0E0E0";
