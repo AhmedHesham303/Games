@@ -28,54 +28,34 @@ function inialise() {
 }
 
 function darkMode() {
-  returnBtn.style.color = "white";
+  returnBtn.style.color = "#003b5c";
   body.style.backgroundColor = "#1A1A2E";
   for (let i = 0; i < 81; i++) {
-    input[i].style.backgroundColor = "#E0E0E0";
-    input[i].style.color = "#fff";
+    input[i].style.backgroundColor = "#a2dff7"; // light blue
+    input[i].style.color = "#003b5c"; // dark blue text
     cell[i].style.borderColor = "#A0A0A0";
-    if ((i + 1) % 3 === 0 && (i + 1) % 9 !== 0) {
-      input[i].style.borderRight = "3px solid #008080";
-    }
-    if ((i + 1) % 3 === 0 && (i + 1) % 9 !== 0 && i < 9) {
-      row[i].style.borderBottom = "3px solid #008080";
-    }
   }
-  header.style.color = "#E0E0E0";
-  grid.style.borderColor = "#008080";
+  header.style.color = "#a2dff7";
+  grid.style.borderColor = "#a2dff7";
   darkBtn.innerHTML = "Light Mode";
-  
-  submitBtn.style.backgroundColor = "#008080";
-  submitBtn.style.color = "White";
-  submitBtn.addEventListener("mouseleave", () => {
-    submitBtn.style.backgroundColor = "#008080";
-    submitBtn.style.color = "White";
-  });
-  submitBtn.addEventListener("mouseenter", () => {
-    submitBtn.style.backgroundColor = "#00b3b3";
-    submitBtn.style.color = "#000000";
-  });
-  resetBtn.style.backgroundColor = "#008080";
-  resetBtn.style.color = "White";
-  resetBtn.addEventListener("mouseleave", () => {
-    resetBtn.style.backgroundColor = "#008080";
-    resetBtn.style.color = "White";
-  });
-  resetBtn.addEventListener("mouseenter", () => {
-    resetBtn.style.backgroundColor = "#00b3b3";
-    resetBtn.style.color = "#000000";
-  });
-  returnBtn.style.backgroundColor = "#008080";
-  darkBtn.style.backgroundColor = "#008080";
-  darkBtn.style.color = "White";
-  darkBtn.addEventListener("mouseleave", () => {
-    darkBtn.style.backgroundColor = "#008080";
-    darkBtn.style.color = "White";
-  });
-  darkBtn.addEventListener("mouseenter", () => {
-    darkBtn.style.backgroundColor = "#00b3b3";
-    darkBtn.style.color = "#000000";
-  });
+
+  const buttonStyle = (btn) => {
+    btn.style.backgroundColor = "#a2dff7";
+    btn.style.color = "#003b5c";
+    btn.addEventListener("mouseleave", () => {
+      btn.style.backgroundColor = "#a2dff7";
+      btn.style.color = "#003b5c";
+    });
+    btn.addEventListener("mouseenter", () => {
+      btn.style.backgroundColor = "#7ec8e3";
+      btn.style.color = "#ffffff";
+    });
+  };
+
+  buttonStyle(submitBtn);
+  buttonStyle(resetBtn);
+  buttonStyle(returnBtn);
+  buttonStyle(darkBtn);
 }
 
 function lightMode() {
@@ -92,41 +72,26 @@ function lightMode() {
     }
   }
   header.style.color = "#0056b3";
-  grid.style.borderColor = " #a9a9a9";
+  grid.style.borderColor = "#a9a9a9";
   darkBtn.innerHTML = "Dark Mode";
-  returnBtn.style.color = "#003b5c";
-  returnBtn.style.backgroundColor = "#a2dff7";
-  submitBtn.style.backgroundColor = "#a2dff7";
-  submitBtn.style.color = "#003b5c";
-  submitBtn.addEventListener("mouseleave", () => {
-    submitBtn.style.backgroundColor = "#a2dff7";
-    submitBtn.style.color = "#003b5c";
-  });
-  submitBtn.addEventListener("mouseenter", () => {
-    submitBtn.style.backgroundColor = "#7ec8e3";
-    submitBtn.style.color = "#ffffff";
-  });
-  resetBtn.style.backgroundColor = "#a2dff7";
-  resetBtn.style.color = "#003b5c";
-  resetBtn.addEventListener("mouseleave", () => {
-    resetBtn.style.backgroundColor = "#a2dff7";
-    resetBtn.style.color = "#003b5c";
-  });
-  resetBtn.addEventListener("mouseenter", () => {
-    resetBtn.style.backgroundColor = "#7ec8e3";
-    resetBtn.style.color = "#ffffff";
-  });
 
-  darkBtn.style.backgroundColor = "#a2dff7";
-  darkBtn.style.color = "#003b5c";
-  darkBtn.addEventListener("mouseleave", () => {
-    darkBtn.style.backgroundColor = "#a2dff7";
-    darkBtn.style.color = "#003b5c";
-  });
-  darkBtn.addEventListener("mouseenter", () => {
-    darkBtn.style.backgroundColor = "#7ec8e3";
-    darkBtn.style.color = "#ffffff";
-  });
+  const buttonStyle = (btn) => {
+    btn.style.backgroundColor = "#a2dff7";
+    btn.style.color = "#003b5c";
+    btn.addEventListener("mouseleave", () => {
+      btn.style.backgroundColor = "#a2dff7";
+      btn.style.color = "#003b5c";
+    });
+    btn.addEventListener("mouseenter", () => {
+      btn.style.backgroundColor = "#7ec8e3";
+      btn.style.color = "#ffffff";
+    });
+  };
+
+  buttonStyle(submitBtn);
+  buttonStyle(resetBtn);
+  buttonStyle(returnBtn);
+  buttonStyle(darkBtn);
 }
 
 function display(mili) {
@@ -134,15 +99,14 @@ function display(mili) {
   const interval = setInterval(() => {
     if (index < 81) {
       input[index].value = game[Math.floor(index / 9)][index % 9] || "";
-      if (input[index].value != "") {
-        if (index % 2 === 0 && !isDarkmode)
-          input[index].style.backgroundColor = "#E0F7FA";
-        else if (index % 2 === 1 && !isDarkmode)
-          input[index].style.backgroundColor = "#FFE3E3";
-        else if (index % 2 === 0 && isDarkmode)
-          input[index].style.backgroundColor = "#008080";
-        else if (index % 2 === 1 && isDarkmode)
-          input[index].style.backgroundColor = "#FF6347";
+      if (input[index].value !== "") {
+        if (!isDarkmode) {
+          input[index].style.backgroundColor = index % 2 === 0 ? "#E0F7FA" : "#FFE3E3";
+          input[index].style.color = "#003b5c";
+        } else {
+          input[index].style.backgroundColor = index % 2 === 0 ? "#a2dff7" : "#7ec8e3";
+          input[index].style.color = "#003b5c";
+        }
       }
       index++;
     } else {
@@ -185,14 +149,11 @@ function solve(board) {
 }
 
 inialise();
+
 darkBtn.addEventListener("click", () => {
   isDarkmode = isDarkmode ^ 1;
   display(0);
-  if (isDarkmode) {
-    darkMode();
-  } else {
-    lightMode();
-  }
+  isDarkmode ? darkMode() : lightMode();
 });
 
 submitBtn.addEventListener("click", () => {
@@ -201,18 +162,12 @@ submitBtn.addEventListener("click", () => {
 });
 
 resetBtn.addEventListener("click", () => {
-  game = [];
-  for (let i = 0; i < 9; i++) {
-    game[i] = Array(9).fill(0);
-  }
+  game = Array.from({ length: 9 }, () => Array(9).fill(0));
   let index = 0;
   const interval = setInterval(() => {
     if (index < 81) {
       input[index].value = "";
-      if (!isDarkmode) input[index].style.backgroundColor = "#fff";
-      else {
-        input[index].style.backgroundColor = "#E0E0E0";
-      }
+      input[index].style.backgroundColor = isDarkmode ? "#E0E0E0" : "#fff";
       index++;
     } else {
       clearInterval(interval);
@@ -230,25 +185,24 @@ returnBtn.addEventListener("click", () => {
 for (let i = 0; i < 81; i++) {
   input[i].addEventListener("input", () => {
     const value = Number(input[i].value);
-    if (
-      input[i].value === "" ||
-      isValid(game, Math.floor(i / 9), i % 9, value)
-    ) {
-      game[Math.floor(i / 9)][i % 9] = value;
+    const rowIdx = Math.floor(i / 9), colIdx = i % 9;
+
+    if (input[i].value === "" || isValid(game, rowIdx, colIdx, value)) {
+      game[rowIdx][colIdx] = value;
       msg.style.display = "none";
       submitBtn.style.display = "block";
-      if (i % 2 === 0 && !isDarkmode)
-        input[i].style.backgroundColor = "#E0F7FA";
-      else if (i % 2 === 1 && !isDarkmode)
-        input[i].style.backgroundColor = "#FFE3E3";
-      else if (i % 2 === 0 && isDarkmode)
-        input[i].style.backgroundColor = "#008080";
-      else if (i % 2 === 1 && isDarkmode)
-        input[i].style.backgroundColor = "#FF6347";
-      if (input[i].value === "" && !isDarkmode)
-        input[i].style.backgroundColor = "white";
-      else if (input[i].value === "" && isDarkmode)
-        input[i].style.backgroundColor = "#E0E0E0";
+
+      if (!isDarkmode) {
+        input[i].style.backgroundColor = i % 2 === 0 ? "#E0F7FA" : "#FFE3E3";
+        input[i].style.color = "#003b5c";
+      } else {
+        input[i].style.backgroundColor = i % 2 === 0 ? "#a2dff7" : "#7ec8e3";
+        input[i].style.color = "#003b5c";
+      }
+
+      if (input[i].value === "") {
+        input[i].style.backgroundColor = isDarkmode ? "#E0E0E0" : "#ffffff";
+      }
     } else {
       msg.style.display = "block";
       msg.innerHTML = "invalid input";
